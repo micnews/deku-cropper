@@ -1,0 +1,43 @@
+{
+  "name": "deku-cropper",
+  "version": "0.0.0",
+  "description": "deku image cropper component",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "semistandard | snazzy",
+    "build": "babel index.js --out-dir dist",
+    "prepublish": "npm run build",
+    "example": "beefy example/client.js --index example/index.html -- --transform babelify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micnews/deku-cropper.git"
+  },
+  "author": "mic.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micnews/deku-cropper/issues"
+  },
+  "homepage": "https://github.com/micnews/deku-cropper#readme",
+  "devDependencies": {
+    "babel-cli": "^6.2.0",
+    "babel-plugin-transform-react-jsx": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-tape-runner": "^1.3.0",
+    "babelify": "^7.2.0",
+    "beefy": "^2.1.5",
+    "budo": "^7.0.2",
+    "deku": "^1.0.0",
+    "semistandard-deku": "github:micnews/semistandard#deku",
+    "snazzy": "^2.0.1",
+    "tape": "^4.2.2",
+    "tsml": "^1.0.1",
+    "watchify": "^3.6.1"
+  },
+  "dependencies": {
+    "cropperjs": "^0.5.2",
+    "is-number": "^2.1.0",
+    "magic-virtual-element": "^1.0.6",
+    "xtend": "^4.0.1"
+  }
+}
