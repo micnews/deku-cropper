@@ -9,8 +9,8 @@ const onCrop = (data) => {
   if (data.x !== x || data.y !== y) {
     app.mount(
       <Cropper
-        containerWidth={640}
-        containerHeight={480}
+        containerWidth={'100%'}
+        containerHeight={'auto'}
         src='http://cropperjs.com/img/picture.jpg'
         onCrop={onCrop}
         aspectRatio={480/640}
@@ -24,8 +24,8 @@ const onCrop = (data) => {
 
 var app = tree(
   <Cropper
-    containerWidth={640}
-    containerHeight={480}
+    containerWidth={'100%'}
+    containerHeight={'auto'}
     src='http://cropperjs.com/img/picture.jpg'
     onCrop={onCrop}
     aspectRatio={480/640}

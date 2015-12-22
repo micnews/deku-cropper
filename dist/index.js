@@ -56,7 +56,3 @@ exports.default = {
     delete croppers[id];
   }
 };
-
-function optsFromProps(props) {
-  return {};
-}
