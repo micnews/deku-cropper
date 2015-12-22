@@ -6,6 +6,7 @@ const croppers = {};
 
 export default {
   beforeUpdate ({ props, id }, nextProps, nextState) {
+    // TODO: Work with all potential opts, so they can be changed at any point
     croppers[id].setData(nextProps);
   },
 
