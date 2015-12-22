@@ -1,7 +1,6 @@
 import element from 'magic-virtual-element';
 import Cropper from 'cropperjs';
 import extend from 'xtend';
-import isNumber from 'is-number';
 
 const croppers = {};
 

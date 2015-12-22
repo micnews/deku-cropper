@@ -13,7 +13,7 @@ const onCrop = (data) => {
         containerHeight={'auto'}
         src='http://cropperjs.com/img/picture.jpg'
         onCrop={onCrop}
-        aspectRatio={480/640}
+        aspectRatio={480 / 640}
         x={x}
         y={y}
         width={data.width}
@@ -28,7 +28,7 @@ var app = tree(
     containerHeight={'auto'}
     src='http://cropperjs.com/img/picture.jpg'
     onCrop={onCrop}
-    aspectRatio={480/640}
+    aspectRatio={480 / 640}
   />
 );
 
