@@ -7,16 +7,24 @@ const croppers = {};
 export default {
   beforeUpdate ({ props, id }, nextProps) {
     const cropper = croppers[id];
-    const { x, y, width, height } = nextProps;
+    const { x, y, width, height, src, zoom } = nextProps;
 
     // TODO: Work with all potential opts, so they can be changed at any point
-    if (props.zoom !== nextProps.zoom) {
-      cropper.zoomTo(nextProps.zoom);
+    if (props.zoom !== zoom) {
+      cropper.zoomTo(zoom);
     }
-    if (props.x !== x || props.y !== y || props.width !== width || props.height !== height) {
+    // only update if change is significant
+    if (Math.abs(props.x - x) > 1 ||
+      Math.abs(props.y - y) > 1 ||
+      Math.abs(props.width - width) > 1 ||
+      Math.abs(props.height - height) > 1) {
       cropper.setData({
         x, y, width, height
       });
+    }
+
+    if (props.src !== src) {
+      cropper.replace(src);
     }
   },
 
@@ -27,10 +35,19 @@ export default {
   },
 
   afterMount ({ props, id }, el, setState) {
+    let cropper;
     const opts = extend({
-      crop: props.onCrop
+      crop: function () {
+        const data = cropper.getData();
+        props.onCrop({
+          x: data.x,
+          y: data.y,
+          width: data.width,
+          height: data.height
+        });
+      }
     }, props);
-    croppers[id] = new Cropper(el.querySelector('img'), opts);
+    cropper = croppers[id] = new Cropper(el.querySelector('img'), opts);
   },
 
   beforeUnmount ({ id }) {
