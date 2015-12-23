@@ -6,8 +6,12 @@ const croppers = {};
 
 export default {
   beforeUpdate ({ props, id }, nextProps, nextState) {
+    const cropper = croppers[id];
+
     // TODO: Work with all potential opts, so they can be changed at any point
-    croppers[id].setData(nextProps);
+    if (props.zoom !== nextProps.zoom) {
+      cropper.zoomTo(nextProps.zoom);
+    }
   },
 
   render ({ props }) {
