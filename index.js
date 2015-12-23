@@ -7,7 +7,7 @@ const croppers = {};
 export default {
   beforeUpdate ({ props, id }, nextProps) {
     const cropper = croppers[id];
-    const { x, y, width, height} = nextProps;
+    const { x, y, width, height } = nextProps;
 
     // TODO: Work with all potential opts, so they can be changed at any point
     if (props.zoom !== nextProps.zoom) {
@@ -16,7 +16,7 @@ export default {
     if (props.x !== x || props.y !== y || props.width !== width || props.height !== height) {
       cropper.setData({
         x, y, width, height
-      })
+      });
     }
   },
 
