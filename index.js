@@ -29,7 +29,7 @@ export default {
   },
 
   render ({ props }) {
-    return (<div style={{ width: props.containerWidth, height: props.containerHeight }}>
+    return (<div style={{ width: props.containerWidth, height: props.containerHeight }} class='deku-cropper-container'>
       <img src={props.src}/>
     </div>);
   },
@@ -45,10 +45,11 @@ export default {
           y: data.y,
           width: data.width,
           height: data.height,
-          zoom: canvasData.width / canvasData.naturalWidth
+          zoom: canvasData.width / canvasData.naturalWidth,
+          loaded: cropper.built
         });
       }
-      : undefined;
+      : function () {};
     const opts = extend({
       crop: handleOnChange,
       zoom: handleOnChange,
