@@ -36,17 +36,27 @@ export default {
 
   afterMount ({ props, id }, el, setState) {
     let cropper;
-    const opts = extend({
-      crop: function () {
+    const handleOnChange = props.onChange
+      ? function () {
         const data = cropper.getData();
-        props.onCrop({
+        const canvasData = cropper.getCanvasData();
+        props.onChange({
           x: data.x,
           y: data.y,
           width: data.width,
-          height: data.height
+          height: data.height,
+          zoom: canvasData.width / canvasData.naturalWidth
         });
       }
+      : undefined;
+    const opts = extend({
+      crop: handleOnChange,
+      zoom: handleOnChange,
+      built: function () {
+        cropper.zoomTo(opts.zoom);
+      }
     }, props);
+
     cropper = croppers[id] = new Cropper(el.querySelector('img'), opts);
   },
 

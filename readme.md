@@ -14,11 +14,11 @@ import Cropper from 'deku-cropper';
 import { render, tree } from 'deku';
 import element from 'magic-virtual-element';
 
-const onCrop = (data) => {
+const onChange = (data) => {
   console.log('data', data);
 }
 
-const app = tree(<Cropper containerWidth={400} containerHeight={300}) onCrop={onCrop} aspectRatio={480/640} src='http://cropperjs.com/img/picture.jpg' />);
+const app = tree(<Cropper containerWidth={400} containerHeight={300}) onChange={onChange} aspectRatio={480/640} src='http://cropperjs.com/img/picture.jpg' />);
 
 render(app, document.body);
 

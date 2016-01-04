@@ -2,7 +2,8 @@ import Cropper from '../index';
 import { render, tree } from 'deku';
 import element from 'magic-virtual-element';
 
-const onCrop = (data) => {
+const onChange = (data) => {
+  console.log('data', data);
   const x = Math.max(data.x, 0);
   const y = Math.max(data.y, 0);
 
@@ -12,7 +13,7 @@ const onCrop = (data) => {
         containerWidth={'100%'}
         containerHeight={'auto'}
         src='http://cropperjs.com/img/picture.jpg'
-        onCrop={onCrop}
+        onChange={onChange}
         aspectRatio={480 / 640}
         x={x}
         y={y}
@@ -27,7 +28,7 @@ var app = tree(
     containerWidth={'100%'}
     containerHeight={'auto'}
     src='http://cropperjs.com/img/picture.jpg'
-    onCrop={onCrop}
+    onChange={onChange}
     aspectRatio={480 / 640}
   />
 );
