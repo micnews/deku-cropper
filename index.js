@@ -37,13 +37,17 @@ export default {
     let cropper;
     const handleOnChange = props.onChange
       ? function () {
-        const data = cropper.getData();
+        const cropData = cropper.getData();
         const canvasData = cropper.getCanvasData();
         props.onChange({
-          cropX: data.x,
-          cropY: data.y,
-          cropWidth: data.width,
-          cropHeight: data.height,
+          cropX: cropData.x,
+          cropY: cropData.y,
+          cropWidth: cropData.width,
+          cropHeight: cropData.height,
+          canvasX: canvasData.left,
+          canvasY: canvasData.right,
+          canvasWidth: canvasData.width,
+          canvasHeight: canvasData.height,
           zoom: canvasData.width / canvasData.naturalWidth,
           loaded: cropper.built
         });
