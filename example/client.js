@@ -4,10 +4,10 @@ import element from 'magic-virtual-element';
 
 const onChange = (data) => {
   console.log('data', data);
-  const x = Math.max(data.x, 0);
-  const y = Math.max(data.y, 0);
+  const cropX = Math.max(data.cropX, 0);
+  const cropY = Math.max(data.cropY, 0);
 
-  if (data.x !== x || data.y !== y) {
+  if (data.cropX !== cropX || data.cropY !== cropY) {
     app.mount(
       <Cropper
         containerWidth={'100%'}
@@ -15,8 +15,8 @@ const onChange = (data) => {
         src='http://cropperjs.com/img/picture.jpg'
         onChange={onChange}
         aspectRatio={480 / 640}
-        x={x}
-        y={y}
+        cropX={cropX}
+        cropY={cropY}
         width={data.width}
         height={data.height} />
     );
