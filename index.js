@@ -7,7 +7,7 @@ const croppers = {};
 export default {
   beforeUpdate ({ props, id }, nextProps) {
     const cropper = croppers[id];
-    const { cropX, cropY, width, height, src, zoom } = nextProps;
+    const { cropX, cropY, cropWidth, cropHeight, src, zoom } = nextProps;
 
     if (props.zoom !== zoom) {
       cropper.zoomTo(zoom);
@@ -15,10 +15,10 @@ export default {
     // only update if change is significant
     if (Math.abs(props.cropX - cropX) > 1 ||
       Math.abs(props.cropY - cropY) > 1 ||
-      Math.abs(props.width - width) > 1 ||
-      Math.abs(props.height - height) > 1) {
+      Math.abs(props.cropWidth - cropWidth) > 1 ||
+      Math.abs(props.cropHeight - cropHeight) > 1) {
       cropper.setData({
-        x: cropX, y: cropY, width, height
+        x: cropX, y: cropY, width: cropWidth, heigth: cropHeight
       });
     }
 
@@ -42,8 +42,8 @@ export default {
         props.onChange({
           cropX: data.x,
           cropY: data.y,
-          width: data.width,
-          height: data.height,
+          cropWidth: data.width,
+          cropHeight: data.height,
           zoom: canvasData.width / canvasData.naturalWidth,
           loaded: cropper.built
         });

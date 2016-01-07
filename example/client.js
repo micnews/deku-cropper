@@ -17,8 +17,8 @@ const onChange = (data) => {
         aspectRatio={480 / 640}
         cropX={cropX}
         cropY={cropY}
-        width={data.width}
-        height={data.height} />
+        cropWidth={data.cropWidth}
+        cropHeight={data.cropHeight} />
     );
   }
 };
