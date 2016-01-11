@@ -8,7 +8,7 @@
     "build": "babel index.js --out-dir dist",
     "prepublish": "npm run build",
     "example": "beefy example/client.js --index example/index.html -- --transform babelify",
-    "test": "npm run lint"
+    "test": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "beefy": "^2.1.5",
     "budo": "^7.0.2",
     "deku": "^1.0.0",
-    "semistandard-deku": "github:micnews/semistandard#deku",
+    "semistandard-deku": "micnews/semistandard#deku",
     "snazzy": "^2.0.1",
     "tape": "^4.2.2",
     "tsml": "^1.0.1",
