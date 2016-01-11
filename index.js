@@ -53,11 +53,18 @@ export default {
         });
       }
       : function () {};
+
     const opts = extend({
       crop: handleOnChange,
       zoom: handleOnChange,
       built: function () {
         cropper.zoomTo(opts.zoom);
+        cropper.setData({
+          x: opts.cropX,
+          y: opts.cropY,
+          width: opts.cropWidth,
+          height: opts.cropHeight
+        });
       }
     }, props);
 
