@@ -53,9 +53,7 @@ export default {
         });
       }
       : function () {};
-    const onBuilt = props.onBuilt
-      ? props.onBuilt
-      : function () {};
+    const onBuilt = props.onBuilt || function () {};
 
     const opts = extend({
       crop: handleOnChange,
