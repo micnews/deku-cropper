@@ -23,12 +23,17 @@ const onChange = (data) => {
   }
 };
 
+function onBuilt () {
+  console.log('Cropper is completely built');
+}
+
 var app = tree(
   <Cropper
     containerWidth={'100%'}
     containerHeight={'auto'}
     src='http://cropperjs.com/img/picture.jpg'
     onChange={onChange}
+    onBuilt={onBuilt}
     aspectRatio={480 / 640}
   />
 );

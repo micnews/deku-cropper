@@ -18,7 +18,11 @@ const onChange = (data) => {
   console.log('data', data);
 }
 
-const app = tree(<Cropper containerWidth={400} containerHeight={300}) onChange={onChange} aspectRatio={480/640} src='http://cropperjs.com/img/picture.jpg' />);
+const onBuilt = () => {
+  console.log('on built');
+}
+
+const app = tree(<Cropper containerWidth={400} containerHeight={300}) onChange={onChange} onBuilt={onBuilt} aspectRatio={480/640} src='http://cropperjs.com/img/picture.jpg' />);
 
 render(app, document.body);
 

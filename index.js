@@ -53,6 +53,7 @@ export default {
         });
       }
       : function () {};
+    const onBuilt = props.onBuilt || function () {};
 
     const opts = extend({
       crop: handleOnChange,
@@ -65,6 +66,7 @@ export default {
           width: opts.cropWidth,
           height: opts.cropHeight
         });
+        onBuilt();
       }
     }, props);
 
